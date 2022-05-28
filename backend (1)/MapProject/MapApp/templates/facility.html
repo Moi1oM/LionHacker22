@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static './css/facility.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="middle">
+        <div class="header">
+            <h2>{{ school.name }}</h2>
+            <p style="margin-top:-20px; color:gray;">{{ school.location }}</p>
+        </div>        
+        <div class="container">
+        <div class="header2" style="margin-bottom: 50px;">
+            <p>{{ school.information }}</p>
+        </div>
+        {% for lounge in lounges %}
+        <div>
+            <p class="list">{{ lounge.category }}</p>
+        </div>
+        <div class="block">
+            <div class="minicon">
+                <img src="{% static lounge.photos %}">
+            </div>
+            <div class="minicon2">
+                <h4>{{ lounge.lounge }}</h4>
+                <p class="info">{{ lounge.lounge_info }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
