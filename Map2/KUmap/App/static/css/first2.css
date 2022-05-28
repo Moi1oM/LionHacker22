@@ -1,9 +1,9 @@
 .main {
   width: 100%;
-  height: 100%;
-  padding-top: 100px;
-  max-width: 375px;
-  margin: 0 auto;
+    min-height: 100vh;
+    max-width: 450px;
+    margin: 0 auto;
+    box-sizing: border-box;
   background-color: white;
 }
 
@@ -20,4 +20,7 @@ p {
 }
 .icon {
   text-align: center;
+}
+.pad{
+  padding-top: 200px;
 }

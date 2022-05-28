@@ -1,0 +1,29 @@
+{% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, intial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+  <title>🐯KUMAP🐯</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/first.css' %}" />
+</head>
+<body>
+  <div class="main pad">
+    <h1>KU-MAP</h1>
+    <br>
+    <p>고려대학교 학생의</p>
+    <p>고려대학교 학생에 의한</p>
+    <p>고려대학교 학생을 위한 지도</p>
+    <a href="{% url 'first2' %}">
+      <div class="icon">
+        <img src="{% static 'images/kumap.png' %}" />
+      </div>
+    </a>
+  </div>
+ <script>
+    setTimeout(function () {
+      window.location = "first2";
+    }, 5000);
+  </script>
+</body>
