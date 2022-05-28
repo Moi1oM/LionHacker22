@@ -14,7 +14,7 @@ h3 {
     color: white;
     width: 80%;
     height: 10%;
-    box-shadow: 5px 5px 4px rgb(114, 109, 109);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     line-height: 30px;
     border-radius: 10px;
 }
@@ -25,7 +25,7 @@ h3 {
     color: black;
     width: 80%;
     height: 10%;
-    box-shadow: 5px 5px 4px rgb(114, 109, 109);
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     line-height: 30px;
     border-radius: 10px;
     text-decoration: none;
@@ -80,8 +80,8 @@ width: 23px;
 height: 27px;
 }
 .closeButton{
-width: 15px;
-height: 15px;
+width: 24px;
+height: 24px;
 padding-left: 80%;
 }
 .arrow{

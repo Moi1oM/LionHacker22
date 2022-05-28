@@ -25,7 +25,7 @@ urlpatterns = [
     path('index/', views.index, name='index'),
     path('entrance/<int:school_pk>', views.entrance, name="entrance"),
     path('facility/<int:school_pk>', views.facility, name="facility"),
-    path('route1/', views.route1, name='route1'),
-    path('route2/', views.route2, name='route2'),
-    path('route3/', views.route3, name='route3'),
+    path('index/6/', views.route1, name='6'),
+    path('index/2/', views.route2, name='2'),
+    path('index/13/', views.route3, name='13'),
 ]

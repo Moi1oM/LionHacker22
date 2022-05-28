@@ -29,7 +29,7 @@
     <img src="{% static './images/location.png' %}" class="locationImage">
     <span>목적지: {{school.name}}</span>
   </div>
-  <a class="button_main" id="addressButton2To3{{school.pk}}" onclick="handleTitleClick2To3({{school.pk}})">이동경로 검색</a>
+  <a class="button_main" id="addressButton2To3{{school.pk}}" href="{{school.pk}}">이동경로 검색</a>
 </div>
 
 <div class="container HIDDEN" id="toDisplay{{school.pk}}-3" style="display:none;">

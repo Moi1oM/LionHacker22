@@ -53,10 +53,10 @@ def facility(request, school_pk):
     return render(request, 'facility.html', {'school': school, 'lounges': lounges})
 
 def route1(request):
-    return render(request, 'route1.html')
+    return render(request, '6.html')
 
 def route2(request):
-    return render(request, 'route2.html')
+    return render(request, '2.html')
 
 def route3(request):
-    return render(request, 'route3.html')  
+    return render(request, '13.html')  

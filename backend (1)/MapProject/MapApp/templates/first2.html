@@ -1,32 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
-<head>
-  <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, intial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
-  />
-  <title>🐯KUMAP🐯</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'css/first2.css' %}" />
-  <meta http-equiv="refresh" content="2; url=localhost:8000/first2" />
-</head>
-<body>
-  <div class="main pad">
-    <br />
-    <br />
-    <br />
-    <br />
-    <h1>한눈에 보는 고려대학교 지도와</h1>
-    <h1>최적의 이동경로</h1>
-    <br />
-    <p>For 새내기, 이중전공생, 코로나학번</p>
-    <br />
-    <br />
-    <br />
+
+{% block middle %}
+    <video autoplay="autoplay" muted="muted" style="width: 100%; margin-bottom: -4px;">
+      <source src="{% static './videos/landing1.mp4' %}">
+    </video>
     <a href="{% url 'first3' %}">
-      <div class="icon">
-        <img src="{% static 'images/12.png' %}" />
+      <div class="img-icon">
+        <img src="{% static 'images/12.png' %}" class="button-img" />
       </div>
     </a>
-    <img src="" />
-  </div>
-</body>
+{% endblock %}
