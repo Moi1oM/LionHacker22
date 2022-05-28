@@ -9,7 +9,7 @@
 
 <div class="container" id="routebase">
     <a href="{% url 'index' %}"><img src="{% static './images/close_button.png' %}" class="closeButtonForRoute"></a>
-    <h3>이동경로 검색</h3>
+    <h3 style="margin-top:0px; margin-bottom:0px;">이동경로 검색</h3>
     <div class="sentence">
         <span><span id="red">출발지:</span> 중앙광장</span> &nbsp; &nbsp; &nbsp;
         <img src="{% static './images/arrow.png' %}" class="arrow"> &nbsp; &nbsp; &nbsp;
@@ -22,8 +22,8 @@
     <div class="sentence">
         <span><span id="red">문과대학 서관</span>에 도착하셨나요?</span>
     </div>
-    <p class="button_else">건물 출입구 확인하기</p>
-    <p class="button_else">건물 내 시설 확인하기</p>
+    <a href="{% url 'entrance' 2 %}" class="button_else" >건물 출입구 확인하기</a>
+    <a href="{% url 'facility' 2 %}" class="button_else">건물 내 시설 확인하기</a>
 </div>
 
 {% endblock middle %}
