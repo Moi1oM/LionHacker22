@@ -2,11 +2,7 @@
 고려대학교 학생들을 위한 고려대학교 캠퍼스맵입니다!
 
 
-![image](https://user-images.githubusercontent.com/101260709/179405693-9935a5af-16b1-4a35-a115-e214d39b3d0b.png)
-
-![image](https://user-images.githubusercontent.com/101260709/179405700-203bf808-08e8-4752-a463-f95cff978f1a.png)
-
-![image](https://user-images.githubusercontent.com/101260709/179405721-1768a61e-1d7f-41c9-a811-3bb39836ace2.png)
+![image](https://user-images.githubusercontent.com/101260709/179405693-9935a5af-16b1-4a35-a115-e214d39b3d0b.png)![image](https://user-images.githubusercontent.com/101260709/179405700-203bf808-08e8-4752-a463-f95cff978f1a.png)![image](https://user-images.githubusercontent.com/101260709/179405721-1768a61e-1d7f-41c9-a811-3bb39836ace2.png)
 
 
 # LionHacker22
