@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Test!</title>
+</head>
+<body>
+  <p1>버튼</p1>
+  <div class="modal">
+
+  </div>
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+    $("p1").addEventListener("click",()=>{
+      $(".modal").innerHTML=
+      `<div class="container" id="toDisplay{{school.pk}}-1" style="display: flex;">
+        <img src="https://w7.pngwing.com/pngs/679/217/png-transparent-the-button-button-button-design-theme-website-icon-web-pages-thumbnail.png" class="closeButton" id="closeButton1{{school.pk}}" onclick="handleTitleClick1({{school.pk}})">
+        <h3>{{school.name}}</h3>
+        <p class="address" style="margin-top:0px;">{{school.location}}</p>
+        <div class="bar"></div>
+        <a class="button_main" id="addressButton{{school.pk}}" onclick="handleTitleClick({{school.pk}})">목적지 설정</a>
+        <a href="{% url 'entrance' school.pk %}" class="button_else">건물 출입구 확인하기</a>
+        <a href="{% url 'facility' school.pk %}" class="button_else">건물 내 시설 확인하기</a>
+      </div>`
+    })    
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% for school in schoolList %}
+<div class="container" id="toDisplay{{school.pk}}-1" style="display: none;">
+  <img src="{% static './images/close_button.png' %}" class="closeButton" id="closeButton1{{school.pk}}" onclick="handleTitleClick1({{school.pk}})">
+  <h3>{{school.name}}</h3>
+  <p class="address" style="margin-top:0px;">{{school.location}}</p>
+  <div class="bar"></div>
+  <a class="button_main" id="addressButton{{school.pk}}" onclick="handleTitleClick({{school.pk}})">목적지 설정</a>
+  <a href="{% url 'entrance' school.pk %}" class="button_else">건물 출입구 확인하기</a>
+  <a href="{% url 'facility' school.pk %}" class="button_else">건물 내 시설 확인하기</a>
+</div>
+
+<div class="container HIDDEN" id="toDisplay{{school.pk}}-2" style="display: none;">
+  <img src="{% static './images/close_button.png' %}" class="closeButton" id="closeButton2{{school.pk}}" onclick="handleTitleClick2({{school.pk}})">
+  <h3>이동경로 검색</h3>
+  <p class="address" style="margin-top:0px;">도보 기준 이동경로 및 시간을 계산합니다.</p>
+  <div class="bar"></div>
+  <div class="button_loc">
+    <img src="{% static './images/location.png' %}" class="locationImage">
+    <span>출발지를 입력해주세요!</span>
+  </div>
+  <div class="button_loc">
+    <img src="{% static './images/location.png' %}" class="locationImage">
+    <span>목적지: {{school.name}}</span>
+  </div>
+  <a class="button_main" id="addressButton2To3{{school.pk}}" href="{{school.pk}}">이동경로 검색</a>
+</div>
+
+<div class="container HIDDEN" id="toDisplay{{school.pk}}-3" style="display:none;">
+  <img src="{% static './images/close_button.png' %}" class="closeButton" id="closeButton3{{school.pk}}" onclick="handleTitleClick3({{school.pk}})">
+  <h3>이동경로 검색</h3>
+  <div class="button_loc2">
+  <span>출발지: sth..sth..   </span>
+  <img src="{% static './images/arrow.png' %}" class="arrow">
+  <span>   도착지:{{school.name}}</span>
+  </div>
+  <div class="button_loc">
+    <img src="{% static './images/running.png' %}" class="runningImage">
+    <span>도보 예상시간: sth..분</span>
+  </div>
+  <div class="button_loc2">
+    <span>{{school.name}}에 도착하셨나요?</span>
+  </div>
+  <a href="{% url 'entrance' school.pk %}" class="button_else">건물 출입구 확인하기</a>
+  <a href="{% url 'facility' school.pk %}" class="button_else">건물 내 시설 확인하기</a>
+</div>
+{% endfor %}

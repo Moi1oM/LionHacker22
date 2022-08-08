@@ -1,0 +1,50 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+        "C:/Users/user/Desktop/seven_eleven_gbstudio_tileset",
+        "."
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "fileStates": {
+        "C:/Users/user/Desktop/collision.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "pelletTown.json": {
+            "scale": 4,
+            "selectedLayer": 16,
+            "viewCenter": {
+                "x": 288.5,
+                "y": 213.75
+            }
+        },
+        "seven_eleven_tileset.tsx": {
+            "scaleInDock": 3,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "C:/Users/user/Desktop/hackerton/LionHacker22/vacationProject",
+    "last.imagePath": "C:/Users/user/Desktop/Pixel Art Top Down - Basic/Texture",
+    "map.height": 30,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "seven_eleven_tileset.tsx",
+        "C:/Users/user/Desktop/collision.tsx"
+    ],
+    "project": "untitled.tiled-project",
+    "recentFiles": [
+        "C:/Users/user/Desktop/collision.tsx",
+        "seven_eleven_tileset.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 12,
+        "width": 12
+    }
+}

@@ -8,6 +8,7 @@ h3 {
     font-size: 80%;
 }
 .button_main{
+  cursor: pointer;
     margin: 4px 0px 4px 0px;
     padding: 8px 0px 8px 0px;
     background-color: #8B0029;
@@ -19,6 +20,7 @@ h3 {
     border-radius: 10px;
 }
 .button_else{
+  cursor: pointer;
     margin: 4px 0px 4px 0px;
     padding: 8px 0px 8px 0px;
     background-color: rgb(233, 231, 231);
@@ -83,6 +85,7 @@ height: 27px;
 width: 24px;
 height: 24px;
 padding-left: 80%;
+cursor: pointer;
 }
 .arrow{
 width: 14px;
