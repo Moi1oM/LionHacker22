@@ -5,7 +5,7 @@
 ![image](https://user-images.githubusercontent.com/101260709/179405693-9935a5af-16b1-4a35-a115-e214d39b3d0b.png)![image](https://user-images.githubusercontent.com/101260709/179405700-203bf808-08e8-4752-a463-f95cff978f1a.png)![image](https://user-images.githubusercontent.com/101260709/179405721-1768a61e-1d7f-41c9-a811-3bb39836ace2.png)
 
 
-모달은 ajax로 클릭한 마커의 모델 데이터를 가져와서 그 데이터에 맞는 HTML을 생성하고 <div class="modal">에 끼워넣는 식으로 만들었다.
+모달은 ajax로 클릭한 마커의 모델 데이터를 가져와서 그 데이터에 맞는 HTML을 생성하고 div 에 끼워넣는 식으로 만들었다.
 ![image](https://user-images.githubusercontent.com/101260709/183368862-d0b0ee93-9357-4b8a-a613-682661fceca7.png)
 
 
