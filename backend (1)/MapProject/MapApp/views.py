@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import School, Info, Lounge, Door
 from django.core import serializers
 import json
+from django.http import HttpResponseBadRequest, JsonResponse
 # Create your views here.
 
 def index(request):
@@ -26,6 +27,41 @@ def index(request):
     jsonObj = json.dumps(jsonObj)
     # print(jsonObj)
     return render(request, 'index.html', {'schools': jsonObj, 'schoolList': schoolList})
+
+def detail_ajax(request, pk):
+    post = School.objects.get(pk=pk)
+    data = {
+        'name': post.name,
+        'location': post.location,
+        'information': post.information,
+        'pk': pk,
+    }
+    print(data)
+    return JsonResponse(data)
+
+def modal(request):
+    schoolList = School.objects.all()
+    schools = serializers.serialize('json', School.objects.all())
+    # print(schools.replace('\r\n', ''))
+    # print(type(schools))
+    jsonObj = json.loads(schools)
+    # print(jsonObj[0])
+    # print(type(jsonObj[0]))
+    schools = json.loads(schools)
+    for i, v in enumerate(schools):
+        # print(jsonObj[i]["fields"]["information"])
+        if jsonObj[i]["fields"]["information"]:
+            jsonObj[i]["fields"]["information"] = jsonObj[i]["fields"]["information"].replace('\r\n','\\n')
+    
+    # jsonObj[0]["fields"]["information"] = jsonObj[0]["fields"]["information"].replace('\r\n','\\r\n')
+    # print('G')
+    # print(schoolList)
+    # print(schools)
+    # print('a')
+    jsonObj = json.dumps(jsonObj)
+    # print(jsonObj)
+    return render(request, 'newModal.html', {'schools': jsonObj, 'schoolList': schoolList})
+
 
 def entrance(request, school_pk):
     doors = Door.objects.filter(building__pk=school_pk)

@@ -5,9 +5,6 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-mapbox-location-field = "*"
-django-location-field = "*"
-pillow = "*"
 
 [dev-packages]
 

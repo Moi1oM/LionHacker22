@@ -28,4 +28,6 @@ urlpatterns = [
     path('index/6/', views.route1, name='6'),
     path('index/2/', views.route2, name='2'),
     path('index/13/', views.route3, name='13'),
+    path('modal/',views.modal, name='modal'),
+    path('modal/detail_ajax/<int:pk>',views.detail_ajax, name="detail_ajax"),
 ]

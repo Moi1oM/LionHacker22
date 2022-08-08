@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static './css/index.css' %}" />
+{% endblock head %}
+{% block middle %}
+<div id="map" style="width: 100%; height: 100vh"></div>
+<div class="modal"></div>
+
+<script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8cd692fb7a99156246c6e7e5349b89e4"
+    ></script>
+    <script>
+      var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(37.58732044640754, 127.02794309024317), // 지도의 중심좌표
+          level: 4, // 지도의 확대 레벨
+        };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다
+      
+
+        const schools = "{{schools}}"
+        console.log("************************")
+        const temp = JSON.parse(schools.replace(/(&quot\;)/g,"\""))
+        console.log({temp})
+        console.log("************************")
+        const positions = temp.map(element =>{return  {
+          latlng: new kakao.maps.LatLng(element.fields.latitude, element.fields.longitude),
+          pk: element.pk,
+          lat: element.fields.latitude,
+          long: element.fields.longitude
+        }});
+        
+        console.log(positions)
+        
+
+
+      iwRemoveable = false; // removeable 속성을 true 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+      var imageSrc = 'https://postfiles.pstatic.net/MjAyMjA1MjhfMjYw/MDAxNjUzNzMzMTA5MDEx.WlMDtrnWMiCv6txqnUxNBlPZE5kxFb8NOzft2P_j-isg.0TxMz-5jOheZ6-kN0l4oMq5QexuCGL9osWir5py3DRgg.PNG.whoy259/ku_marker.png?type=w773',
+      imageSize = new kakao.maps.Size(55, 67);
+      imageOption = {offset: new kakao.maps.Point(27, 69)};
+
+      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+
+      positions.forEach(position => {
+         // 마커를 생성합니다
+         var marker = new kakao.maps.Marker({
+          map: map, // 마커를 표시할 지도
+          position: position.latlng, // 마커의 위치
+          image: markerImage
+        });
+        kakao.maps.event.addListener(marker, 'click', function(mouseEvent) { 
+          // console.log({pk: position})   
+          var latlng = position.latlng;
+        location.href = `javascript:display(${position.pk}); setZoomRange(${latlng.getLat()}, ${latlng.getLng()});`;
+      });})
+
+     
+
+      // 인포윈도우를 표시하는 클로저를 만드는 함수입니다
+      function makeOverListener(map, marker, infowindow) {
+        return function () {
+          infowindow.open(map, marker);
+        };
+      }
+
+      // 인포윈도우를 닫는 클로저를 만드는 함수입니다
+      function makeOutListener(infowindow) {
+        return function () {
+          infowindow.close();
+        };
+      }
+      function closeModal(){
+        template=''
+        modal = document.querySelector(".modal")
+        modal.innerHTML = template
+      }
+      function showSecondModal(name){
+        template=`
+        <div class="container">
+          <img src="{% static './images/close_button.png' %}" class="closeButton" onclick="closeModal()">
+          <h3>이동경로 검색</h3>
+          <p class="address" style="margin-top:0px;">도보 기준 이동경로 및 시간을 계산합니다.</p>
+          <div class="bar"></div>
+          <div class="button_loc">
+            <img src="{% static './images/location.png' %}" class="locationImage">
+            <span>출발지를 입력해주세요!</span>
+          </div>
+          <div class="button_loc">
+            <img src="{% static './images/location.png' %}" class="locationImage">
+            <span>목적지: ${name}</span>
+          </div>
+          <a class="button_main">이동경로 검색</a>
+        </div>`
+        modal = document.querySelector(".modal")
+        modal.innerHTML = template
+      }
+      function showFirstModal(schoolPk){
+        if (schoolPk != null){
+          $.ajax({
+          url: "detail_ajax/"+schoolPk,
+          async: false,
+          type: "GET",
+          dataType: "json",
+          success: (data) => {
+              console.log(data)
+              const num=data.pk
+              const path_prefix = "{% url 'entrance' %}"
+              template = 
+              `<div class="container">
+                <img src="{% static './images/close_button.png' %}" class="closeButton" onclick="closeModal()">
+                <h3>${data.name}</h3>
+                <p class="address" style="margin-top:0px;">${data.location}</p>
+                <div class="bar"></div>
+                <a class="button_main" onclick="showSecondModal('${data.name}')">목적지 설정</a>
+                <a href="${path_prefix}${num}" class="button_else">건물 출입구 확인하기</a>
+                <a class="button_else">건물 내 시설 확인하기</a>
+              </div>`        
+          },
+          error: (error) => {
+              console.log(error);
+          }
+          });
+          modal = document.querySelector(".modal")
+          modal.innerHTML = template
+    }}
+      //마커 클릭이벤트랑 css 연결해주는 함수
+      function display(pk) {
+
+        showFirstModal(pk);
+      
+      }
+      function display1To2(pk){
+
+      }
+      /* 마커 클릭 시 해당 마커를 위주로 지도범위 재설정 */
+      //효령언니: 이 함수가 어떤 마커를 클릭했는지 알아야 그 마커에 맞는 위도 경도에 접근하므로 마커의 pk값을 매개변수로 받기
+      function setZoomRange(lat, lng) {
+        var moveLatLon = new kakao.maps.LatLng(lat, lng);
+        map.panTo(moveLatLon);
+        
+      }
+
+      /* 인포윈도우의 닫기 버튼 클릭 시 지도범위 재설정 */
+      
+
+    </script>
+    <script>
+    </script>
+{% endblock middle %}
+{% block footer %}
+{% endblock footer%}
